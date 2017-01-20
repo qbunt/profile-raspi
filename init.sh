@@ -30,3 +30,15 @@ service keyboard-setup restart
 
 apt-get update
 apt-get upgrade -y
+
+# install the edimax 802.11ac drivers for the 4.4.34 kernel and install
+wget https://dl.dropboxusercontent.com/u/80256631/8812au-4.4.34-v7-930.tar.gz
+tar xzf 8812au-4.4.34-v7-930.tar.gz
+./install.sh
+
+# install docker
+curl -sSL http://downloads.hypriot.com/docker-hypriot_1.10.3-1_armhf.deb >/tmp/docker-hypriot_1.10.3-1_armhf.deb
+sudo dpkg -i /tmp/docker-hypriot_1.10.3-1_armhf.deb
+rm -f /tmp/docker-hypriot_1.10.3-1_armhf.deb
+sudo sh -c 'usermod -aG docker $SUDO_USER'
+sudo systemctl enable docker.service
