@@ -31,6 +31,9 @@ service keyboard-setup restart
 apt-get update
 apt-get upgrade -y
 
+# place an SSH activation file on /boot/ to activate
+touch /boot/ssh
+
 # install the edimax 802.11ac drivers for the 4.4.34 kernel and install
 # wget https://dl.dropboxusercontent.com/u/80256631/8812au-4.4.34-v7-930.tar.gz
 # tar xzf 8812au-4.4.34-v7-930.tar.gz
